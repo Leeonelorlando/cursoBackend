@@ -73,6 +73,11 @@ class UserManager {
 
 }
 
-let manager = new UserManager('./data/users.json')
-manager.addUser({name: 'Leonel', lastName: 'Orlando', age: '24', carts: []})
-manager.addUser({name: 'Prueba', lastName: 'Usuario2', age: '20', carts: []})
+async function manager() {
+
+    let manager = new UserManager('./data/users.json')
+    await manager.addUser({name: 'Leonel', lastName: 'Orlando', age: '24', carts: []})
+    await manager.addUser({name: 'Prueba', lastName: 'Usuario2', age: '20', carts: []})
+    await manager.updateUser(1, {name: 'Leonel'})
+    await manager.updateUser(2, {name: 'Prueba'})
+}
