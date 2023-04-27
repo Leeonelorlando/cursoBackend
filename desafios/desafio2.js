@@ -34,3 +34,4 @@ class UserManager {
 
 let manager = new UserManager('./data/users.json')
 manager.addUser({name: 'Leonel', lastName: 'Orlando', age: '24', carts: []})
+manager.addUser({name: 'Prueba', lastName: 'Usuario2', age: '20', carts: []})

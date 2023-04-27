@@ -5,5 +5,12 @@
     "age": "24",
     "carts": [],
     "id": 1
+  },
+  {
+    "name": "Prueba",
+    "lastName": "Usuario2",
+    "age": "20",
+    "carts": [],
+    "id": 1
   }
 ]
