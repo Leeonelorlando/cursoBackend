@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "name": "Leonel",
+    "lastName": "Orlando",
+    "age": "24",
+    "carts": [],
+    "id": 1
+  }
+]

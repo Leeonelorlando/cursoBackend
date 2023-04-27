@@ -13,7 +13,7 @@ class UserManager {
         .then(res=>(console.log('file created')))
         .catch(err=> console.log(err))
     } else {
-        this.users = fs.promises.readFile(path)
+        fs.promises.readFile(path, 'utf-8')
             .then(res=> this.users = JSON.parse(res))
             .catch(err=> console.log(err))
     }
@@ -21,8 +21,11 @@ class UserManager {
 
     addUser({name, lastName, age, carts}) {
         let data = {name, lastName, age, carts}
-        data = JSON.stringify(data, null, 2)
-        fs.promises.writeFile(this.path, data)
+        data.id = 1
+        console.log(this.users)
+        this.users.push(data)
+        let dataJson = JSON.stringify(this.users, null, 2)
+        fs.promises.writeFile(this.path, dataJson)
             .then(res=>console.log('user created'))
             .catch(err=>console.log(err))
     }
