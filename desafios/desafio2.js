@@ -19,16 +19,25 @@ class UserManager {
     }
 }
 
-    addUser({name, lastName, age, carts}) {
+async addUser({name, lastName, age, carts}) {
+    try {
         let data = {name, lastName, age, carts}
-        data.id = 1
-        console.log(this.users)
+        if (this.users.length>0) {
+            let nextId = this.users[this.users.length-1].id+1
+            data.id = nextId
+        } else {
+            data.id = 1
+        }
         this.users.push(data)
         let dataJson = JSON.stringify(this.users, null, 2)
-        fs.promises.writeFile(this.path, dataJson)
-            .then(res=>console.log('user created'))
-            .catch(err=>console.log(err))
+        await fs.promises.writeFile(this.path,dataJson)
+        console.log('id´s created user: '+ data.id)
+        return 'id´s user: '+ data.id
+    } catch(error) {
+        console.log(error)
+        return 'error: creating user'
     }
+}
 
     readUsers() {
         return this.users
@@ -74,10 +83,15 @@ class UserManager {
 }
 
 async function manager() {
-
     let manager = new UserManager('./data/users.json')
     await manager.addUser({name: 'Leonel', lastName: 'Orlando', age: '24', carts: []})
     await manager.addUser({name: 'Prueba', lastName: 'Usuario2', age: '20', carts: []})
+    await manager.addUser({name: 'Carlos', lastName: 'Alcaraz', age: '25', carts: []})
+    await manager.addUser({name: 'Esteban', lastName: 'Rinaudo', age: '33', carts: []})
     await manager.updateUser(1, {name: 'Leonel'})
-    await manager.updateUser(2, {name: 'Prueba'})
+    await manager.updateUser(2, {name: 'Prueba', carts: ['celular']})
+    await manager.updateUser(3, {age: 30})
+    await manager.destroyUser(1)
+    await manager.destroyUser(4)
 }
+manager()

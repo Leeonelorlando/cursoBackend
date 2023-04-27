@@ -12,5 +12,19 @@
     "age": "20",
     "carts": [],
     "id": 1
+  },
+  {
+    "name": "Carlos",
+    "lastName": "Alcaraz",
+    "age": "25",
+    "carts": [],
+    "id": 1
+  },
+  {
+    "name": "Esteban",
+    "lastName": "Rinaudo",
+    "age": "33",
+    "carts": [],
+    "id": 1
   }
 ]
