@@ -30,6 +30,47 @@ class UserManager {
             .catch(err=>console.log(err))
     }
 
+    readUsers() {
+        return this.users
+    }
+
+    readUser(id) {
+        let one = this.users.find(each=>each.id===id)
+        return one
+    }
+
+    async updateUser(id, data) {
+        try {
+            let one = this.readUser(id)
+
+            for (let prop in data) {
+                one[prop] = data [prop]
+            }
+
+            let dataJson = JSON.stringify(this.users, null, 2)
+
+            await fs.promises.writeFile(this.path, dataJson)
+            console.log('updated user: ' + id)
+            return 'updated user: ' + id
+        } catch(error) {
+            console.log(error)
+            return 'error: updating user'
+        }
+    }
+
+    async destroyUser(id) {
+        try {
+            this.users = this.users.filter(each=>each.id!==id)
+            let dataJson = JSON.stringify(this.users, null, 2)
+            await fs.promises.writeFile(this.path, dataJson)
+            console.log('delete user: ' + id)
+            return 'delete user: ' + id
+        } catch(error) {
+            console.log(error)
+            return 'error: deleting user'
+        }
+    }
+
 }
 
 let manager = new UserManager('./data/users.json')
