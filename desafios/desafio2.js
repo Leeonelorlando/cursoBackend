@@ -1,4 +1,5 @@
-const fs = require('fs')
+//const fs = require('fs')
+import fs from 'fs'
 
 class ProductManager {
     constructor(path) {
@@ -104,8 +105,9 @@ class ProductManager {
 
 }
 
-async function manager() {
-    let manager = new ProductManager('./data/data.json')
+let manager = new ProductManager('./data/data.json')
+
+async function manage() {
     await manager.addProduct({ title:"cheeseburg", description:"solo queso", price:10, thumbnail:"foto cheese", code:"che", stock:4 })
     await manager.addProduct({ title:"doble cheese", description:"mucho queso", price:5, thumbnail:"foto doble cheese", code:"chs", stock:10 })
     await manager.addProduct({ title:"onion burger", description:"con cebolla", price:20, thumbnail:"foto onion", code:"oni", stock:8 })
@@ -116,4 +118,6 @@ async function manager() {
     await manager.deleteProduct(1)
     await manager.deleteProduct(130)
 }
-manager()
+//manager()
+
+export default manager
