@@ -1,5 +1,5 @@
 import express from 'express'
-import manager from '../desafios/desafio2.js'
+import manager from './desafios/desafio2.js'
 
 let server = express()
 
@@ -28,12 +28,12 @@ let one_function = (request,response)=> {
     if (one) {
         return response.send({
             success: true,
-            user: one
+            product: one
         })
     } else {
         return response.send({
             success: false,
-            user: 'not found'
+            product: 'not found'
         })
     }
     
@@ -46,16 +46,16 @@ let query_function = (req,res)=> {
     let quantity = req.query.quantity ?? 5
 /*     if (req.query.quantity) {
     } */
-    let users = manager.getProducts().slice(0,quantity) //array de usuarios que tengo que REBANAR para que se pagine según la query que envía el cliente
-    if (users.length>0) {
+    let products = manager.getProducts().slice(0,quantity) //array de usuarios que tengo que REBANAR para que se pagine según la query que envía el cliente
+    if (products.length>0) {
         return res.send({
             success: true,
-            users
+            products
         })
     } else {
         return res.send({
             success: false,
-            users: 'not found'
+            products: 'not found'
         })
     }    
 }
