@@ -8,23 +8,18 @@
   },
   {
     "name": "Prueba",
-    "lastName": "Usuario2",
-    "age": "20",
-    "carts": [],
-    "id": 1
-  },
-  {
-    "name": "Carlos",
     "lastName": "Alcaraz",
     "age": "25",
-    "carts": [],
-    "id": 1
+    "carts": [
+      "celular"
+    ],
+    "id": 2
   },
   {
     "name": "Esteban",
     "lastName": "Rinaudo",
-    "age": "33",
+    "age": 30,
     "carts": [],
-    "id": 1
+    "id": 3
   }
 ]

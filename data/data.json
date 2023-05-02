@@ -1,0 +1,29 @@
+[
+  {
+    "title": "doble cheese",
+    "description": "mucho queso",
+    "price": 5,
+    "thumbnail": "foto doble cheese",
+    "code": "chs",
+    "stock": 10,
+    "id": 2
+  },
+  {
+    "title": "onion burger",
+    "description": "con cebolla",
+    "price": 20,
+    "thumbnail": "foto onion",
+    "code": "oni",
+    "stock": 8,
+    "id": 3
+  },
+  {
+    "title": "american",
+    "description": "con tomate y lechuga",
+    "price": 12,
+    "thumbnail": "foto american",
+    "code": "ame",
+    "stock": 6,
+    "id": 4
+  }
+]
