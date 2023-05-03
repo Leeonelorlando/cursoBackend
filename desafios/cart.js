@@ -69,6 +69,6 @@ async function carrito(){
     await cart.getCarts()
     await cart.getCartsById(2)
 }
-carrito()
+//carrito()
 
 export default cart

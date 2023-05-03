@@ -24,7 +24,7 @@ let products_function=(req,res)=>{
     let limit=req.query.limit
     console.log(limit)
     if(limit){
-        let products = manager.getProducts().slice(0,limit)
+        let products = manager.getProducts().slice(5,limit)
     if(products.length>0){
         return res.send({
             succes: true,
