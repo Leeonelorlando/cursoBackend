@@ -17,7 +17,6 @@
     "url": "https://github.com/Leeonelorlando/cursoBackend/issues"
   },
   "homepage": "https://github.com/Leeonelorlando/cursoBackend#readme",
-  "description": "",
   "dependencies": {
     "express": "^4.18.2",
     "nodemon": "^2.0.22"

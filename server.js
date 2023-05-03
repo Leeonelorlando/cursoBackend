@@ -1,5 +1,5 @@
 import express from 'express'
-import manager from './desafios/desafio2.js'
+import manager from './desafios/app.js'
 
 let server = express()
 
@@ -21,9 +21,7 @@ let one_route = '/products/:id'
 let one_function = (request,response)=> {
     let parametros = request.params
     let id = Number(parametros.id)
-    //console.log(id)
-    //console.log(typeof id)
-    let one = manager.getProducts(id)
+    let one = manager.getProductById(id)
     console.log(one)
     if (one) {
         return response.send({
@@ -43,9 +41,7 @@ server.get(one_route,one_function)
 let query_route = '/products'
 let query_function = (req,res)=> {
     console.log(req.query)
-    let quantity = req.query.quantity ?? 5
-/*     if (req.query.quantity) {
-    } */
+    let quantity = req.query.quantity ?? 7
     let products = manager.getProducts().slice(0,quantity) //array de usuarios que tengo que REBANAR para que se pagine según la query que envía el cliente
     if (products.length>0) {
         return res.send({

@@ -1,11 +1,11 @@
 [
   {
-    "title": "doble cheese",
+    "title": "doble cheeseburger",
     "description": "mucho queso",
     "price": 5,
     "thumbnail": "foto doble cheese",
     "code": "chs",
-    "stock": 10,
+    "stock": 11,
     "id": 2
   },
   {

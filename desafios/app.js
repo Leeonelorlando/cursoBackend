@@ -61,27 +61,22 @@ class ProductManager {
         }
     }
 
-    async updateProduct(id, data) {
+    async updateProduct(id,data) {     
         try {
             let one = this.getProductById(id)
-            if(!one) {
-                console.log('Not found')
-                return 'Not found'
-            }
-            if(Object.keys(data).length===0) {
-                console.log('error: insert some product')
-                return 'error: insert some product'
-            }
+        
             for (let prop in data) {
+                console.log(prop)
+                console.log(data[prop])
                 one[prop] = data[prop]
             }
             let data_json = JSON.stringify(this.products,null,2)
             await fs.promises.writeFile(this.path,data_json)
-            console.log('updatedProduct: '+ id)
-            return 'updatedProduct: '+ id
+            console.log('updated user: '+id)
+            return 'updated user: '+id
         } catch(error) {
             console.log(error)
-            return 'updateProduct: error'
+            return 'error: updating user'
         }
     }
 
@@ -112,12 +107,12 @@ async function manage() {
     await manager.addProduct({ title:"doble cheese", description:"mucho queso", price:5, thumbnail:"foto doble cheese", code:"chs", stock:10 })
     await manager.addProduct({ title:"onion burger", description:"con cebolla", price:20, thumbnail:"foto onion", code:"oni", stock:8 })
     await manager.addProduct({ title:"american", description:"con tomate y lechuga", price:12, thumbnail:"foto american", code:"ame", stock:6 })
-    await manager.updateProduct(0,{ title:"cheeseburger" })
-    await manager.updateProduct(1,{title:"doble cheeseburger", stock:11})
-    await manager.updateProduct(2,{})  
+    await manager.updateProduct(1,{ title:"cheeseburger" })
+    await manager.updateProduct(2,{title:"doble cheeseburger", stock:11})
+    await manager.updateProduct(3,{})  
     await manager.deleteProduct(1)
     await manager.deleteProduct(130)
 }
-//manager()
+//manage()
 
 export default manager
