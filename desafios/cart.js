@@ -57,8 +57,8 @@ class CartManager{
 let cart = new CartManager('./data/carts.json')
 
 async function carrito(){
-    await cart.addCart({quantity:5})
-    await cart.addCart({quantity:2})
+    await cart.addCart({pid: 4, quantity:5})
+    await cart.addCart({pid: 6, quantity:2})
     await cart.getCarts()
     await cart.getCartsById(2)
 }
