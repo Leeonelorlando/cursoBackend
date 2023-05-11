@@ -13,11 +13,11 @@ class ProductManager {
         if (!file) {
             fs.writeFileSync(path,'[]')
             console.log('file created at path: '+this.path)
-            return 'file created at path: '+this.path
+            return 201
         } else {
             this.products = JSON.parse(fs.readFileSync(path,'UTF-8'))
             console.log('data recovered')
-            return 'data recovered'
+            return 200
         }
     }
 
@@ -34,31 +34,19 @@ class ProductManager {
             let data_json = JSON.stringify(this.products,null,2)
             await fs.promises.writeFile(this.path,data_json)
             console.log('created product: '+ data.id)
-            return 'product: '+ data.id
+            return 201
         } catch(error) {
             console.log(error)
-            return 'addProduct: error'
+            return null
         }
     }
 
     getProducts() {
-        try{
-            return this.products
-        } catch(error) {
-            console.log(error)
-            return 'getProduct: error'
-        }
+        return this.products
     }
 
     getProductById(id) {
-        let one = this.products.find(each=>each.id===id)
-        if(!one) {
-            console.log('getProductById: error')
-            return null
-        } else{
-            console.log('finded product: ' + id)
-            return one
-        }
+        return this.products.find(each=>each.id===id)
     }
 
     async updateProduct(id,data) {     
@@ -73,28 +61,28 @@ class ProductManager {
             let data_json = JSON.stringify(this.products,null,2)
             await fs.promises.writeFile(this.path,data_json)
             console.log('updated user: '+id)
-            return 'updated user: '+id
+            return 200
         } catch(error) {
             console.log(error)
-            return 'error: updating user'
+            return null
         }
     }
 
     async deleteProduct(id) {
         try {
-            let one = this.getProductById(id)  
-            if(!one) {
-                console.log('Not found')
-                return 'Not found'
+            let one = this.products.find(each=>each.id===id)
+            if (one) {
+                this.products = this.products.filter(each=>each.id!==id)
+                let data_json = JSON.stringify(this.products,null,2)
+                await fs.promises.writeFile(this.path,data_json)
+                console.log('delete product: '+id)
+                return 200
             }
-            this.products = this.products.filter(each=>each.id!==id)
-            let data_json = JSON.stringify(this.products,null,2)
-            await fs.promises.writeFile(this.path,data_json)
-            console.log('deleteProduct: '+id)
-            return 'deleteProduct: '+id
+            console.log('not found')
+            return null
         } catch(error) {
             console.log(error)
-            return 'deleteProduct: error'
+            return null
         }
     }
 
