@@ -88,7 +88,7 @@ class ProductManager {
 
 }
 
-let manager = new ProductManager('./data/data.json')
+let manager = new ProductManager('./src/data/data.json')
 
 async function manage() {
     await manager.addProduct({ title:"cheeseburg", description:"solo queso", price:10, thumbnail:"foto cheese", code:"che", stock:4 })

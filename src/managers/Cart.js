@@ -47,9 +47,9 @@ class CartManager{
         return this.carts.find(each=>each.id===id)
     }
 
-    async update_cart(id,data) {
+    async updateCart(id,data) {
         try {
-            let one = this.read_cart(id)
+            let one = this.getCartsById(id)
             for (let prop in data) {
                 one[prop] = data[prop]
             }
@@ -62,7 +62,7 @@ class CartManager{
             return null
         }
     }
-    async destroy_cart(id) {
+    async deleteCart(id) {
         try {
             let one = this.carts.find(each=>each.id===id)
             if (one) {
@@ -81,7 +81,7 @@ class CartManager{
     }
 }
 
-let cart = new CartManager('./data/carts.json')
+let cart = new CartManager('./src/data/carts.json')
 
 async function carrito(){
     await cart.addCart({pid: 4, quantity:5})
