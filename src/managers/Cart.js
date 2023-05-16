@@ -1,7 +1,7 @@
-import fs from "fs"
+import fs from 'fs'
 
-class CartManager{
-    constructor(path){
+class Cart{
+    constructor(path) {
         this.carts = []
         this.path = path
         this.init(path)
@@ -81,14 +81,6 @@ class CartManager{
     }
 }
 
-let cart = new CartManager('./src/data/carts.json')
-
-async function carrito(){
-    await cart.addCart({pid: 4, quantity:5})
-    await cart.addCart({pid: 6, quantity:2})
-    await cart.getCarts()
-    await cart.getCartsById(2)
-}
-//carrito()
+let cart = new Cart('./src/data/carts.json')
 
 export default cart
