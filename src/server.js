@@ -14,7 +14,7 @@ const ready = ()=> console.log('server ready on port '+PORT)
 server.set('views',__dirname+'/views')
 server.set('view engine','handlebars')
 
-server.use('/public',express.static('public'))
+server.use(express.static('public'))
 server.use(express.json())
 server.use(express.urlencoded({extended:true}))
 server.use('/',router)
