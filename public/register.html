@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/styles.css">
-    <title>REGISTER</title>
+    <title>Nuevo Producto</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-danger">
+    <nav class="navbar navbar-expand-sm bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand text-light" href="#">Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,32 +31,32 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 d-flex flex-column">
-                    <h3>User register</h3>
+                    <h3>Nuevo producto</h3>
                     <form id="productsForm" action="/register", method="POST">
                         <fieldset class="mb-2">
-                            <label for="productName" class="form-label">Name</label>
+                            <label for="productName" class="form-label">Titulo</label>
                             <input type="text" class="form-control" name="name" id="productName" />
                         </fieldset>
                                 <fieldset class="mb-2">
-                                    <label for="productLast_Name" class="form-label">Last Name</label>
+                                    <label for="productLast_Name" class="form-label">Descripción</label>
                                     <input type="text" class="form-control" name="last_Name" id="productLast_Name" />
                                 </fieldset>
                                 <fieldset class="mb-2">
-                                    <label for="productNumber" class="form-label">Number</label>
+                                    <label for="productNumber" class="form-label">Precio</label>
                                     <input type="number" class="form-control" name="number" id="productNumber" />
                                 </fieldset>
                                 <div class="mb-2">
-                                    <label for="productPhoto" class="form-label">Photo</label>
+                                    <label for="productPhoto" class="form-label">Stock</label>
                                     <input type="text" class="form-control" name="url_photo" id="productPhoto" aria-describedby="photoSource"/>
                                 </div>
-                                <button id='newProduct' type="submit" class="btn btn-danger mt-2">Sign Up!</button>
+                                <button type="button" class="btn btn-success">Ingresar producto!</button>
                             </form>
                             </div>
                         <div id="productTable" class="col-6"></div>
                     </div>
                 </div>
             </main>
-            <footer class="bg-warning p-2 text-center">
+            <footer class="bg-light p-2 text-center">
                 E-COMMERCE
             </footer>
 </body>

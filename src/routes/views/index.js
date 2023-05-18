@@ -6,7 +6,8 @@ router.get('/', async(req,res,next)=> {
     try {
         return res.render('index',{
             title: 'index',
-            description: 'ESTO VA EN EL MAIN'
+            description: 'ESTO VA EN EL MAIN',
+            script: '/public/connection.js'
         })
     } catch(error) {
         next(error)

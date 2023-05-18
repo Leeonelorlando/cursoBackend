@@ -14,3 +14,7 @@ main {
     flex-grow: 1;
     background-color: rgb(255, 160, 160);
 }
+
+.gris {
+    background-color: #3b3b3b;
+  }
