@@ -1,28 +1,12 @@
 import server from "./app.js"
-import { Server } from "socket.io"
+import { connect } from "mongoose";
 
-const PORT = 8080
-const ready = ()=> console.log('server ready on port '+PORT)
+const port = process.env.PORT || 8080
+const ready = () => {
+    console.log('server ready on port '+port);
+    connect(process.env.LINK_MONGO)
+        .then(()=>console.log('connected to database'))
+        .catch(err=>console.log(err))
+}
 
-let http_server = server.listen(PORT,ready)
-let socket_server = new Server(http_server)
-
-let contador = 0
-
-socket_server.on(
-    'connection',
-    socket => {
-        console.log(`client ${socket.client.id} connected`)
-        socket.on(
-            'primer conexion',
-            data => {
-            console.log(data.name)
-            contador++
-                socket_server.emit(
-                    'contador',
-                    { contador }
-                )
-            }
-        )
-    }
-)
+server.listen(port,ready)
