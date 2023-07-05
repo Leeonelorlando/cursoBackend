@@ -1,6 +1,6 @@
 import { Router } from "express"
-import Cart from "../models/Cart.js"
-import User from "../models/User.js"
+import Cart from "../../models/Cart.js"
+import User from "../../models/User.js"
 import { Types } from "mongoose"
 
 const carts_router = Router()

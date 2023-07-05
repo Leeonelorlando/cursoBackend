@@ -1,16 +1,8 @@
-import { Router } from "express";
-import carts_router from "./carts.js"
-import cookies_router from "./cookies.js"
-import sessions_router from "./sessions.js"
-import auth_router from "./auth.js";
-import products_router from "./products.js"
+import { Router } from "express"
+import api_router from './api/index.js'
 
-const router = Router()
+const index_router = Router()
 
-router.use('/auth',auth_router)
-router.use('/products',products_router)
-router.use('/carts',carts_router)
-router.use('/cookies',cookies_router)
-router.use('/sessions',sessions_router)
+index_router.use('/api',api_router) //enrutador de rutas que respondan con json (datos)
 
-export default router
+export default index_router
