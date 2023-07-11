@@ -2,7 +2,7 @@ import { Router } from "express"
 import Product from "../../models/Product.js"
 import auth from "../../middlewares/auth.js"
 
-let products_router = Router()
+const products_router = Router()
 
 products_router.post(
     '/',
