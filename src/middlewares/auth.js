@@ -1,4 +1,4 @@
-import User from "../models/User.js"
+import User from "../dao/User.js"
 import jwt from "jsonwebtoken"
 
 export default (req, res, next) => {

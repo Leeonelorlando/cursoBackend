@@ -1,13 +1,13 @@
 import { Router } from "express"
-import User from '../../models/User.js'
-import validatorRegister from "../../middlewares/validatorRegister.js"
-import validatorSignin from "../../middlewares/validatorSignin.js"
-import passIs8 from "../../middlewares/passIs8.js"
-import createHash from '../../middlewares/createHash.js'
-import isValidPassword from '../../middlewares/isValidPassword.js'
-import userExists from "../../middlewares/userExists.js"
+import User from '../dao/User.js'
+import validatorRegister from "../middlewares/validatorRegister.js"
+import validatorSignin from "../middlewares/validatorSignin.js"
+import passIs8 from "../middlewares/passIs8.js"
+import createHash from '../middlewares/createHash.js'
+import isValidPassword from '../middlewares/isValidPassword.js'
+import userExists from "../middlewares/userExists.js"
 import passport from "passport"
-import generateToken from "../../middlewares/generateToken.js"
+import generateToken from "../middlewares/generateToken.js"
 
 const auth_router = Router()
 

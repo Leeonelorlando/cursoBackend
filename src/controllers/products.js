@@ -1,6 +1,6 @@
 import { Router } from "express"
-import Product from "../../models/Product.js"
-import auth from "../../middlewares/auth.js"
+import Product from "../dao/Product.js"
+import auth from "../middlewares/auth.js"
 
 const products_router = Router()
 

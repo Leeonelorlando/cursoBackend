@@ -2,7 +2,7 @@
 import passport from "passport"
 import { Strategy } from 'passport-local'
 import GHStrategy from 'passport-github2'
-import User from "../models/User.js"
+import User from "../dao/User.js"
 const callback = 'http://localhost:8080/api/auth/github/callback'
 const { GH_CLIENT_ID,GH_CLIENT_SECRET } = process.env
 

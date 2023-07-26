@@ -1,4 +1,4 @@
-import User from '../models/User.js'
+import User from '../dao/User.js'
 
 export default async function userExists(req, res, next) {
 	let one = await User.findOne({ email:req.body.email },'email password -_id')

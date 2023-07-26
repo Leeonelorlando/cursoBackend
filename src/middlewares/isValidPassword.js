@@ -1,5 +1,5 @@
 import { compareSync } from 'bcrypt'
-import User from "../models/User.js"
+import User from "../dao/User.js"
 
 export default async function isValidPassword(req, res, next) {
 	let verified = compareSync(

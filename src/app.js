@@ -1,7 +1,7 @@
 import 'dotenv/config.js'
 import { connect } from 'mongoose'
 import express from 'express'
-import router from './router/api/index.js'
+import router from './routes/api/index.js'
 import error_handler from './middlewares/error_handler.js'
 import not_found_handler from './middlewares/not_found.js'
 //import { __dirname } from './utils.js'
